@@ -1,0 +1,34 @@
+<html>
+	<head>
+	</head>
+		<title>Motivational Message Applikcation 2</title>
+		<style>
+			*{font-size:40px;}
+			h2{font-size:60px;}
+			body{background-color:lightblue;}
+		</style>
+	<body>
+	</body>
+		<center>
+			<h1>Motivational Message Application</h1>
+<br/></br><br/>
+
+		<form onsubmit="show()">
+			<input type ="submit" value ="Show Message"/>
+		</form>
+			<h2 id="msg"/>
+
+			<script>
+				function show(){
+				event.preventDefault();
+				let msg=document.getElementById("msg")	;
+				
+				let url="https://quotes-api-self.vercel.app/quote";
+				fetch(url)
+				.then(res=>res.json())
+				.then(data=> msg.innerHTML=data.quote)
+				.catch(err=>msg.innerHTML="issue"+err);
+				}
+			</script>
+		</center>
+</html>
